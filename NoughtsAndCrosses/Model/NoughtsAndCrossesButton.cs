@@ -9,7 +9,7 @@ namespace NoughtsAndCrosses.Model
 {
     class NoughtsAndCrossesButton : Button
     {
-        private int _numberOfClicks = 0;
+        protected int _numberOfClicks = 0;
         public int NumberOfClicks
         {
             get { return _numberOfClicks; }
@@ -20,10 +20,5 @@ namespace NoughtsAndCrosses.Model
             _numberOfClicks++;
         }
 
-        public void SetText()
-        {
-            this.Text = (_numberOfClicks % 2) == 0 ? "0" : "X";
-            this.Font = new System.Drawing.Font("Consolas", 50);
-        }
     }
 }

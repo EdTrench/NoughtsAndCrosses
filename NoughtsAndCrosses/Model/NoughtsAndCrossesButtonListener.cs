@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NoughtsAndCrosses.Service;
 
 namespace NoughtsAndCrosses.Model
 {
@@ -15,8 +16,9 @@ namespace NoughtsAndCrosses.Model
         private void ClickedIt(Object sender, Object e)
         {
             NoughtsAndCrossesButton noughtsAndCrossesButton = (NoughtsAndCrossesButton)sender;
+            NoughtsAndCrossesButtonService noughtsAndCrossesButtonService = new NoughtsAndCrossesButtonService(noughtsAndCrossesButton);
             noughtsAndCrossesButton.IncrementNumberOfClicks();
-            noughtsAndCrossesButton.SetText();
+            noughtsAndCrossesButtonService.SetText();
         }
     }
 }

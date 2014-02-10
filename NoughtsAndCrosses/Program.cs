@@ -20,14 +20,12 @@ namespace NoughtsAndCrosses
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            NoughtsAndCrossesMainForm mainForm = new NoughtsAndCrossesMainForm();
-            mainForm.Text = "Noughts and Crosses";
-            mainForm.Width = Settings.mainFormWidth;
-            mainForm.Height = Settings.mainFormHeight;
-
-            Panel mainPanel = new Panel();
-            mainPanel.Width = Settings.mainPanelWidth;
-            mainPanel.Height = Settings.mainPanelHeight;
+            NoughtsAndCrossesBoard board = new NoughtsAndCrossesBoard();
+            board.Text = "Noughts and Crosses";
+            board.Width = Settings.mainFormWidth;
+            board.Height = Settings.mainFormHeight;
+ 
+            //create the board listener
 
             int x = 0;
             int y = 0;
@@ -42,15 +40,13 @@ namespace NoughtsAndCrosses
                 button.Top = y;
                 x = (i % Settings.noOfButtonsInRow) == 0 ? 0 : x + Settings.buttonWidth;
                 y = (i % Settings.noOfButtonsInRow) == 0 ? (y + Settings.buttonHeight) : y;
-                mainPanel.Controls.Add(button);
+                board.NoughtsAndCrossesButtons.Add(button);
+                board.Controls.Add(button);
                 NoughtsAndCrossesButtonListener listener = new NoughtsAndCrossesButtonListener();
                 listener.Subscribe(button);
             }
-
-            mainForm.Controls.Add(mainPanel);
-            
-            Application.Run(mainForm);
-
+           
+            Application.Run(board);
         }
     }
 }

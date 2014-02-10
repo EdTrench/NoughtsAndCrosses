@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using NoughtsAndCrosses.Model;
 
-namespace NoughtsAndCrosses
+namespace NoughtsAndCrosses.Service
 {
-    class NoughtsAndCrosses
+    class NoughtsAndCrossesService
     {
-        public bool HasWon(IList<NoughtsAndCrossesButton> listOfNoughtsAndCrossesButtons)
+        public bool HasWon()
         {
-
+            return true;
         }
     }
 }
