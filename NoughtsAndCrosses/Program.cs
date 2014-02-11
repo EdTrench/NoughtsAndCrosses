@@ -25,15 +25,13 @@ namespace NoughtsAndCrosses
             board.Width = Settings.mainFormWidth;
             board.Height = Settings.mainFormHeight;
  
-            //create the board listener
-
             int x = 0;
             int y = 0;
 
             for (int i = 1; i <= Settings.noOfButtons; i++)
             {
                 NoughtsAndCrossesButton button = new NoughtsAndCrossesButton();
-                button.Name = "button" + i;
+                button.Name = i.ToString();
                 button.Width = Settings.buttonWidth;
                 button.Height = Settings.buttonHeight;
                 button.Left = x;
@@ -42,10 +40,14 @@ namespace NoughtsAndCrosses
                 y = (i % Settings.noOfButtonsInRow) == 0 ? (y + Settings.buttonHeight) : y;
                 board.NoughtsAndCrossesButtons.Add(button);
                 board.Controls.Add(button);
-                NoughtsAndCrossesButtonListener listener = new NoughtsAndCrossesButtonListener();
-                listener.Subscribe(button);
+                NoughtsAndCrossesButtonListener Buttonlistener = new NoughtsAndCrossesButtonListener();
+                Buttonlistener.Subscribe(button);
             }
-           
+
+            //create the board listener
+            NoughtsAndCrossesBoardListener BoardListener = new NoughtsAndCrossesBoardListener();
+            BoardListener.Subscribe(board);
+
             Application.Run(board);
         }
     }
