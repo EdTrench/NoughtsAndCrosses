@@ -7,19 +7,28 @@ using NoughtsAndCrosses.Model;
 
 namespace NoughtsAndCrosses.Service
 {
-    class NoughtsAndCrossesBoardService
-    {
-        private NoughtsAndCrossesBoard _noughtsAndCrossesBoard;
+	class NoughtsAndCrossesBoardService
+	{
+		private NoughtsAndCrossesBoard _noughtsAndCrossesBoard;
 
-        public NoughtsAndCrossesBoardService(NoughtsAndCrossesBoard noughtsAndCrossesBoard)
-        {
-            _noughtsAndCrossesBoard = noughtsAndCrossesBoard;
-        }
+		public NoughtsAndCrossesBoardService(NoughtsAndCrossesBoard noughtsAndCrossesBoard)
+		{
+			_noughtsAndCrossesBoard = noughtsAndCrossesBoard;
+		}
 
-        public void HasWon()
-        {
-            //_noughtsAndCrossesBoard.NoughtsAndCrossesButtons.Where(x => x.)
-            System.Windows.Forms.MessageBox.Show("has won?");
-        }
-    }
+		public void HasWon(NoughtsAndCrossesBoard noughtsAndCrossesBoard)
+		{
+			bool winner = true;
+			for (int j = 0; j <= Settings.noOfButtonsInRow; j++)
+			{
+				string v = "";
+				
+				if (noughtsAndCrossesBoard.NoughtsAndCrossesButtons.ElementAt(j).Value != v)
+				{
+					winner = false;
+				}
+				v = noughtsAndCrossesBoard.NoughtsAndCrossesButtons.ElementAt(j).Value;
+			}
+		}
+	}
 }

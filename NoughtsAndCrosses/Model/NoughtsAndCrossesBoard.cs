@@ -15,6 +15,5 @@ namespace NoughtsAndCrosses.Model
         }
 
         public List<Model.NoughtsAndCrossesButton> NoughtsAndCrossesButtons { get; set; }
-
     }
 }

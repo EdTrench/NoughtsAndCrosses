@@ -31,7 +31,7 @@ namespace NoughtsAndCrosses
             for (int i = 1; i <= Settings.noOfButtons; i++)
             {
                 NoughtsAndCrossesButton button = new NoughtsAndCrossesButton();
-                button.Name = i.ToString();
+                button.Id = i;
                 button.Width = Settings.buttonWidth;
                 button.Height = Settings.buttonHeight;
                 button.Left = x;

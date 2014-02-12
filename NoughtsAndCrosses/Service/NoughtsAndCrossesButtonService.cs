@@ -18,8 +18,9 @@ namespace NoughtsAndCrosses.Service
 
         public void SetText()
         {
-            _noughtsAndCrossesButton.Text = (_noughtsAndCrossesButton.NumberOfClicks % 2) == 0 ? "0" : "X";
             _noughtsAndCrossesButton.Font = new System.Drawing.Font("Consolas", 50);
+            _noughtsAndCrossesButton.Value = (_noughtsAndCrossesButton.NumberOfClicks % 2) == 0 ? "0" : "X";
+            _noughtsAndCrossesButton.Text = _noughtsAndCrossesButton.Value;
         }
 
     }

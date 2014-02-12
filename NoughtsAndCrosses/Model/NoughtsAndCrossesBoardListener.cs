@@ -13,17 +13,14 @@ namespace NoughtsAndCrosses.Model
         {
             foreach (NoughtsAndCrossesButton button in noughtsAndCrossesBoard.NoughtsAndCrossesButtons)
             {
-                button.Click += new System.EventHandler(ClickedIt);
+                button.Click += (sender, eventArgs) => { ButtonClicked(noughtsAndCrossesBoard); };
             }
-             
         }
 
-        private void ClickedIt(object sender, EventArgs e)
+        private void ButtonClicked(NoughtsAndCrossesBoard noughtsAndCrossesBoard)
         {
-            NoughtsAndCrossesBoard noughtsAndCrossesBoard = (NoughtsAndCrossesBoard)sender;
             NoughtsAndCrossesBoardService noughtsAndCrossesBoardService = new NoughtsAndCrossesBoardService(noughtsAndCrossesBoard);
-            noughtsAndCrossesBoardService.HasWon();
-
+            noughtsAndCrossesBoardService.HasWon(noughtsAndCrossesBoard);
         }
     }
 }
