@@ -15,7 +15,9 @@ namespace NoughtsAndCrosses
         public const int mainPanelWidth = 630;
         public const int mainPanelHeight = 630;
         public const int noOfButtons = 9;
-        public const int noOfButtonsInRow = 3;
+        public const int noOfRows = 3;
+        public static readonly int noOfColumns = (noOfButtons / noOfRows);
+
 
     }
 }

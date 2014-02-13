@@ -36,8 +36,8 @@ namespace NoughtsAndCrosses
                 button.Height = Settings.buttonHeight;
                 button.Left = x;
                 button.Top = y;
-                x = (i % Settings.noOfButtonsInRow) == 0 ? 0 : x + Settings.buttonWidth;
-                y = (i % Settings.noOfButtonsInRow) == 0 ? (y + Settings.buttonHeight) : y;
+                x = (i % Settings.noOfRows) == 0 ? 0 : x + Settings.buttonWidth;
+                y = (i % Settings.noOfRows) == 0 ? (y + Settings.buttonHeight) : y;
                 board.NoughtsAndCrossesButtons.Add(button);
                 board.Controls.Add(button);
                 NoughtsAndCrossesButtonListener Buttonlistener = new NoughtsAndCrossesButtonListener();
