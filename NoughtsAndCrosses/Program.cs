@@ -24,7 +24,13 @@ namespace NoughtsAndCrosses
             board.Text = "Noughts and Crosses";
             board.Width = Settings.mainFormWidth;
             board.Height = Settings.mainFormHeight;
- 
+
+            var player1 = new Player { Name = "Frederick", ShortName = 'F' };
+            var player2 = new Player { Name = "Edward", ShortName = 'E' };
+
+            player1.Board = board;
+            player2.Board = board;
+
             int x = 0;
             int y = 0;
 
@@ -32,12 +38,13 @@ namespace NoughtsAndCrosses
             {
                 NoughtsAndCrossesButton button = new NoughtsAndCrossesButton();
                 button.Id = i;
+                button.Value = null;
                 button.Width = Settings.buttonWidth;
                 button.Height = Settings.buttonHeight;
                 button.Left = x;
                 button.Top = y;
-                x = (i % Settings.noOfRows) == 0 ? 0 : x + Settings.buttonWidth;
-                y = (i % Settings.noOfRows) == 0 ? (y + Settings.buttonHeight) : y;
+                x = (i % Settings.noOfRowsAndColumns) == 0 ? 0 : x + Settings.buttonWidth;
+                y = (i % Settings.noOfRowsAndColumns) == 0 ? (y + Settings.buttonHeight) : y;
                 board.NoughtsAndCrossesButtons.Add(button);
                 board.Controls.Add(button);
                 NoughtsAndCrossesButtonListener Buttonlistener = new NoughtsAndCrossesButtonListener();

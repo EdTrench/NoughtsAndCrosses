@@ -22,6 +22,5 @@ namespace NoughtsAndCrosses.Service
             _noughtsAndCrossesButton.Value = (_noughtsAndCrossesButton.NumberOfClicks % 2) == 0 ? "0" : "X";
             _noughtsAndCrossesButton.Text = _noughtsAndCrossesButton.Value;
         }
-
     }
 }

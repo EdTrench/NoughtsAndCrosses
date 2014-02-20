@@ -8,16 +8,11 @@ namespace NoughtsAndCrosses
 {
     static class Settings
     {
-        public const int mainFormWidth = 615;
-        public const int mainFormHeight = 640;
         public const int buttonWidth = 200;
         public const int buttonHeight = 200;
-        public const int mainPanelWidth = 630;
-        public const int mainPanelHeight = 630;
-        public const int noOfButtons = 9;
-        public const int noOfRows = 3;
-        public static readonly int noOfColumns = (noOfButtons / noOfRows);
-
-
+        public const int noOfRowsAndColumns = 3;
+        public const int mainFormWidth = ((buttonWidth * noOfRowsAndColumns) + 15);
+        public const int mainFormHeight = ((buttonHeight * noOfRowsAndColumns)  + 40);
+        public const int noOfButtons = (noOfRowsAndColumns * noOfRowsAndColumns);
     }
 }

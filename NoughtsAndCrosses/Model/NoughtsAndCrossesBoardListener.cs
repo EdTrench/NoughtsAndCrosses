@@ -20,7 +20,7 @@ namespace NoughtsAndCrosses.Model
         private void ButtonClicked(NoughtsAndCrossesBoard noughtsAndCrossesBoard)
         {
             NoughtsAndCrossesBoardService noughtsAndCrossesBoardService = new NoughtsAndCrossesBoardService(noughtsAndCrossesBoard);
-            noughtsAndCrossesBoardService.HasWon(noughtsAndCrossesBoard);
+            noughtsAndCrossesBoardService.HasWon();
         }
     }
 }
