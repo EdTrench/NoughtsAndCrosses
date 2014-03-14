@@ -16,6 +16,11 @@ namespace NoughtsAndCrosses.Service
 			_noughtsAndCrossesBoard = noughtsAndCrossesBoard;
 		}
 
+        public int NumberOfPlays()
+        {
+            return _noughtsAndCrossesBoard.NoughtsAndCrossesButtons.Select(x => x.NumberOfClicks).Count();
+        }
+
 		public void HasWon()
 		{
             IList<NoughtsAndCrossesButton> diagonal1 = new List<NoughtsAndCrossesButton>();

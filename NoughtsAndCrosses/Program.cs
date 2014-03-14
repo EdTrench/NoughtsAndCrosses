@@ -25,14 +25,7 @@ namespace NoughtsAndCrosses
             board.Width = Settings.mainFormWidth;
             board.Height = Settings.mainFormHeight;
 
-            var player1 = new Player { Name = "Frederick", ShortName = 'F' };
-            var player2 = new Player { Name = "Edward", ShortName = 'E' };
-
-            player1.Board = board;
-            player2.Board = board;
-
-            int x = 0;
-            int y = 0;
+            int x = 0, y = 0;
 
             for (int i = 1; i <= Settings.noOfButtons; i++)
             {

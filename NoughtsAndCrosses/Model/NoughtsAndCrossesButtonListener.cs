@@ -19,7 +19,6 @@ namespace NoughtsAndCrosses.Model
             NoughtsAndCrossesButtonService noughtsAndCrossesButtonService = new NoughtsAndCrossesButtonService(noughtsAndCrossesButton);
             noughtsAndCrossesButton.IncrementNumberOfClicks();
             noughtsAndCrossesButtonService.SetText();
-            //noughtsAndCrossesButtonService.HasWon();
         }
     }
 }

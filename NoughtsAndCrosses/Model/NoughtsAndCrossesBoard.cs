@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace NoughtsAndCrosses.Model
 {
-    class NoughtsAndCrossesBoard : Form
+    public class NoughtsAndCrossesBoard : Form
     {
+        public List<Model.NoughtsAndCrossesButton> NoughtsAndCrossesButtons { get; set; }
+
         public NoughtsAndCrossesBoard()
         {
             this.NoughtsAndCrossesButtons = new List<NoughtsAndCrossesButton>();
         }
-
-        public List<Model.NoughtsAndCrossesButton> NoughtsAndCrossesButtons { get; set; }
     }
 }

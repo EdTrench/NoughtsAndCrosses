@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace NoughtsAndCrosses.Model
 {
-    class NoughtsAndCrossesButton : Button
+    public class NoughtsAndCrossesButton : Button
     {
         public int Id { get; set; }
         public string Value { get; set; }

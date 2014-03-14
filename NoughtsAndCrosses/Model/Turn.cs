@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace NoughtsAndCrosses.Model
 {
-    public class Player
+    public class Turn
     {
-        public string Name { get; set; }
-        public char ShortName { get; set; }
-        public NoughtsAndCrossesBoard Board { get; set; }
+        public Player Player { get; set; }
     }
 }
