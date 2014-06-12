@@ -8,7 +8,6 @@ namespace NoughtsAndCrossesConsole.Model
 {
     class Tile
     {
-        public int Postion { get; set; }
         public Model.Player Player { get; set; }
     }
 }

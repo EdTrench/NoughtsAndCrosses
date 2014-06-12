@@ -12,7 +12,7 @@ namespace NoughtsAndCrossesConsole.Model
 
         public Board()
         {
-            this.Tiles = new Dictionary<int, Model.Tile>();
+            this.Tiles = new Dictionary<int, Model.Tile>(Settings.numberOfTiles);
         }
     }
 }
