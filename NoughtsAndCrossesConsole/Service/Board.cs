@@ -25,35 +25,27 @@ namespace NoughtsAndCrossesConsole.Service
             _board.Tiles.Add(GetNextKey(), tile);
         }
 
-        public bool ValidTilePosition(Model.Tile tile)
+        public bool IsValidTilePosition(Model.Tile tile)
         {
-            return ! _board.Tiles.Any(x => x.Value.Postion == tile.Postion);
+            if (IsPostionAlreadyTaken(tile)) return false;
+            if (! IsPositionOnTheBoard(tile)) return false;
+            return true;
         }
 
         public bool HasWon()
         {
             bool winner = false;
                         
-            for (int i = 0; i < Settings.noOfRowsAndColumns; i++)
+            for (int i = 0; i < Settings.numberOfRowsAndColumns; i++)
             {
                 IList<int> row = new List<int>();
-                for (int j = 0; j < Settings.noOfRowsAndColumns; j++)
+                for (int j = 0; j < Settings.numberOfRowsAndColumns; j++)
                 {
-                    var position = j + (i * Settings.noOfRowsAndColumns);
+                    var position = j + (i * Settings.numberOfRowsAndColumns);
                     row.Add(position);
                 }
-
-                //_board.Tiles.Where(x => x.Value.Player == GetPlayer()).Select(y => y.Value.Postion).Except(row);
                 winner = ! row.Except(_board.Tiles.Where(x => x.Value.Player == GetPlayer()).Select(y => y.Value.Postion)).Any();
-                Console.WriteLine(winner);
-            //    foreach (var item in row)
-            //    {
-            //        Console.WriteLine(item);
-            //    }
-            //    foreach (var item in _board.Tiles.Where(x => x.Value.Player == GetPlayer()))
-            //    {
-            //        Console.WriteLine(String.Format("Player: {0}. Position {1}",  item.Value.Player.Name, item.Value.Postion));
-            //    }
+                if (winner) return winner;
             }
 
             return winner;
@@ -78,6 +70,18 @@ namespace NoughtsAndCrossesConsole.Service
         private static int GetNextKey()
         {
             return _key++;
+        }
+
+        private bool IsPostionAlreadyTaken(Model.Tile tile)
+        {
+            return _board.Tiles.Any(x => x.Value.Postion == tile.Postion);
+        }
+
+        private bool IsPositionOnTheBoard(Model.Tile tile)
+        {
+            if (tile.Postion < 0) return false;
+            if (tile.Postion > Settings.numberOfTiles) return false;
+            return true;
         }
     }
 }
