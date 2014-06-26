@@ -17,7 +17,6 @@ namespace NoughtsAndCrossesConsole
             {
                 game.TakeTurn();
                 game.Display();
-                if (game.HasWon()) { break; };
                 Console.WriteLine();
             }
         }

@@ -8,11 +8,11 @@ namespace NoughtsAndCrossesConsole.Model
 {
     class Board
     {
-        public Dictionary<int, Model.Tile> Tiles { get; set; }
+        public List<Model.Tile> Tiles { get; set; }
 
         public Board()
         {
-            this.Tiles = new Dictionary<int, Model.Tile>(Settings.numberOfTiles);
+            this.Tiles = new List<Model.Tile>(Settings.numberOfTiles);
         }
     }
 }

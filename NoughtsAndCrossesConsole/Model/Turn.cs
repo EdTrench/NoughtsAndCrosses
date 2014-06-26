@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace NoughtsAndCrossesConsole.Model
 {
-    class Tile
+    public static class Turn
     {
-        public int Id { get; set; }
-        public Model.Player Player { get; set; }
+        public static int key;
     }
 }
