@@ -15,9 +15,10 @@ namespace NoughtsAndCrossesConsole
 
             while (true)
             {
-                game.Play();
+                game.TakeTurn();
                 game.Display();
-                Console.ReadKey();
+                if (game.HasWon()) { break; };
+                Console.WriteLine();
             }
         }
     }
