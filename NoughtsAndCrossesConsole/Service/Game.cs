@@ -27,8 +27,8 @@ namespace NoughtsAndCrossesConsole.Service
             int userInput;
             Model.Tile selectedTile;
             
-            Console.Write(String.Format("Please take your turn {0}. Which Tile would you like? (0-8)", GetPlayer().Name));
-            userInput = GetUserInput();
+            Console.Write(String.Format("Please take your turn {0}. Which Tile would you like? (1-9)", GetPlayer().Name));
+            userInput = new Service.UserInput().GetValidUserInput(Console.ReadKey().KeyChar.ToString());
             selectedTile = _board.Tiles.Where(x => x.Id == userInput).Where(x => x.Player == null).SingleOrDefault();
             if (selectedTile != null)
             {
@@ -53,7 +53,7 @@ namespace NoughtsAndCrossesConsole.Service
             {
                 Console.Write(String.Format("|{0}|",
                     (tile.Player == null) ? "-" : tile.Player.ShortName.ToString()));
-                if ((tile.Id + 1) % Settings.numberOfRowsAndColumns == 0) { Console.WriteLine(); }
+                if ((tile.Id) % Settings.numberOfRowsAndColumns == 0) { Console.WriteLine(); }
             }
         }
         
@@ -64,7 +64,7 @@ namespace NoughtsAndCrossesConsole.Service
             {
                 for (int j = 0; j < Settings.numberOfRowsAndColumns; j++)
                 {
-                    row[j] = j + (i * Settings.numberOfRowsAndColumns);
+                    row[j] = j + (i * Settings.numberOfRowsAndColumns) + 1;
                 }
                 var playersTiles = _board.Tiles.Where(x => x.Player == GetPlayer());
                 return !row.Except(playersTiles.Select(x => x.Id)).Any();
@@ -79,7 +79,7 @@ namespace NoughtsAndCrossesConsole.Service
             {
                 for (int j = 0; j < Settings.numberOfRowsAndColumns; j++)
                 {
-                    column[j] = i + (j * Settings.numberOfRowsAndColumns);
+                    column[j] = i + (j * Settings.numberOfRowsAndColumns) + 1;
                 }
                 var playersTiles = _board.Tiles.Where(x => x.Player == GetPlayer());
                 return !column.Except(playersTiles.Select(x => x.Id)).Any();
@@ -92,7 +92,7 @@ namespace NoughtsAndCrossesConsole.Service
             int[] diagonalLeft = new int[Settings.numberOfRowsAndColumns];
             for (int i = 0; i < Settings.numberOfRowsAndColumns; i++)
             {
-                diagonalLeft[i] = (i * (Settings.numberOfRowsAndColumns + 1));
+                diagonalLeft[i] = (i * (Settings.numberOfRowsAndColumns + 1)) + 1;
             }
             var playersTiles = _board.Tiles.Where(x => x.Player == GetPlayer());
             return !diagonalLeft.Except(playersTiles.Select(x => x.Id)).Any();
@@ -103,20 +103,16 @@ namespace NoughtsAndCrossesConsole.Service
             int[] diagonalRight = new int[Settings.numberOfRowsAndColumns];
             for (int i = 0; i < Settings.numberOfRowsAndColumns; i++)
             {
-                diagonalRight[i] = ((i + 1) * (Settings.numberOfRowsAndColumns - 1));
+                diagonalRight[i] = ((i + 1) * (Settings.numberOfRowsAndColumns - 1)) + 1;
             }
             var playersTiles = _board.Tiles.Where(x => x.Player == GetPlayer());
             return !diagonalRight.Except(playersTiles.Select(x => x.Id)).Any();
         }
 
-        private int GetUserInput()
-        {
-            return Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
-        }
 
         private void CreateTilesOnBoard()
         {
-            for (int i = 0; i < Settings.numberOfTiles; i++)
+            for (int i = 1; i <= Settings.numberOfTiles; i++)
             {
                 _board.Tiles.Add(new Model.Tile() { Id = i });
             }
