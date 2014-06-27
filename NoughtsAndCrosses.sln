@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoughtsAndCrosses", "NoughtsAndCrosses\NoughtsAndCrosses.csproj", "{7F929896-1219-4191-A697-2BC116CF03EB}"
-EndProject
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoughtsAndCrossesConsole", "NoughtsAndCrossesConsole\NoughtsAndCrossesConsole.csproj", "{9B75F3DE-101F-4565-B46F-7748EAD370D1}"
 EndProject
 Global
@@ -11,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7F929896-1219-4191-A697-2BC116CF03EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F929896-1219-4191-A697-2BC116CF03EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F929896-1219-4191-A697-2BC116CF03EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F929896-1219-4191-A697-2BC116CF03EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9B75F3DE-101F-4565-B46F-7748EAD370D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9B75F3DE-101F-4565-B46F-7748EAD370D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B75F3DE-101F-4565-B46F-7748EAD370D1}.Release|Any CPU.ActiveCfg = Release|Any CPU

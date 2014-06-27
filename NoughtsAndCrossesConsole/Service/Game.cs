@@ -33,7 +33,10 @@ namespace NoughtsAndCrossesConsole.Service
             if (selectedTile != null)
             {
                 selectedTile.Player = GetPlayer();
-                if (HasWon()) { Console.WriteLine("WINNTER!"); }
+                if (HasWonRow() || HasWonColumn() || HasWonDiagonalLeft() || HasWonDiagonalRight())
+                {
+                    Console.WriteLine("WINNER!");
+                }
                 Model.Turn.key++;
             }
             else
@@ -50,14 +53,60 @@ namespace NoughtsAndCrossesConsole.Service
             {
                 Console.Write(String.Format("|{0}|",
                     (tile.Player == null) ? "-" : tile.Player.ShortName.ToString()));
-                if ((tile.Id + 1) % 3  == 0) {Console.WriteLine();}
+                if ((tile.Id + 1) % Settings.numberOfRowsAndColumns == 0) { Console.WriteLine(); }
             }
         }
         
-        public bool HasWon()
+        public bool HasWonRow()
         {
+            int[] row = new int[Settings.numberOfRowsAndColumns];
+            for (int i = 0; i < Settings.numberOfRowsAndColumns; i++)
+            {
+                for (int j = 0; j < Settings.numberOfRowsAndColumns; j++)
+                {
+                    row[j] = j + (i * Settings.numberOfRowsAndColumns);
+                }
+                var playersTiles = _board.Tiles.Where(x => x.Player == GetPlayer());
+                return !row.Except(playersTiles.Select(x => x.Id)).Any();
+            }
+            return false;
+        }
+
+        public bool HasWonColumn()
+        {
+            int[] column = new int[Settings.numberOfRowsAndColumns];
+            for (int i = 0; i < Settings.numberOfRowsAndColumns; i++)
+            {
+                for (int j = 0; j < Settings.numberOfRowsAndColumns; j++)
+                {
+                    column[j] = i + (j * Settings.numberOfRowsAndColumns);
+                }
+                var playersTiles = _board.Tiles.Where(x => x.Player == GetPlayer());
+                return !column.Except(playersTiles.Select(x => x.Id)).Any();
+            }
+            return false;
+        }
+
+        public bool HasWonDiagonalLeft()
+        {
+            int[] diagonalLeft = new int[Settings.numberOfRowsAndColumns];
+            for (int i = 0; i < Settings.numberOfRowsAndColumns; i++)
+            {
+                diagonalLeft[i] = (i * (Settings.numberOfRowsAndColumns + 1));
+            }
             var playersTiles = _board.Tiles.Where(x => x.Player == GetPlayer());
-            return ! new List<int>() { 0, 1, 2 }.Except(playersTiles.Select(x => x.Id)).Any();
+            return !diagonalLeft.Except(playersTiles.Select(x => x.Id)).Any();
+        }
+
+        public bool HasWonDiagonalRight()
+        {
+            int[] diagonalRight = new int[Settings.numberOfRowsAndColumns];
+            for (int i = 0; i < Settings.numberOfRowsAndColumns; i++)
+            {
+                diagonalRight[i] = ((i + 1) * (Settings.numberOfRowsAndColumns - 1));
+            }
+            var playersTiles = _board.Tiles.Where(x => x.Player == GetPlayer());
+            return !diagonalRight.Except(playersTiles.Select(x => x.Id)).Any();
         }
 
         private int GetUserInput()

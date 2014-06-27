@@ -12,7 +12,7 @@ namespace NoughtsAndCrossesConsole.Model
 
         public Board()
         {
-            this.Tiles = new List<Model.Tile>(Settings.numberOfTiles);
+            this.Tiles = new List<Model.Tile>(Settings.numberOfTiles + 1);
         }
     }
 }
